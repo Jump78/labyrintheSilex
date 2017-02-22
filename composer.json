@@ -1,0 +1,16 @@
+{
+    "name": "clement/labyrinthe",
+    "description": "Exercice d'utilisiation de Silex",
+    "require-dev": {
+        "silex/silex": "^2.0",
+        "twig/twig": "^2.1"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Clement Teboul",
+            "email": "teboul.clement@gmail.com"
+        }
+    ],
+    "require": {}
+}
