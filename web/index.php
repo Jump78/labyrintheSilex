@@ -11,13 +11,19 @@
 
 	$app = new Application();
 
+	$app->register(new Silex\Provider\ServiceControllerServiceProvider());
 	$app->register(new Silex\Provider\SessionServiceProvider());
+
 
 	$app->register(new Silex\Provider\TwigServiceProvider(), array(
 	    'twig.path' => __DIR__.'/../views',
 	));
 
 	$app['debug'] = true;
+
+	$app['front.controller'] = function () use ($app){
+		return new \Controllers\FrontController($app);
+	};
 
 	$app['database.config'] = [
 	        'dsn'      => 'mysql:host=' . DB_HOST . ';dbname=' . DB_DATABASE,
@@ -37,9 +43,7 @@
 		return new \PDO($options['dsn'],$options['username'],$options['password'],$options['options']);
 	};
 
-
-	$app->get('/', function() use($app) {
-	    return $app['twig']->render('front/home.twig');
-	});
+	$app->post('/generate',"front.controller:create");
+	$app->get('/',"front.controller:index");
 
 	$app->run();

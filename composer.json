@@ -12,5 +12,13 @@
             "email": "teboul.clement@gmail.com"
         }
     ],
-    "require": {}
+    "require": {},
+    "autoload": {
+        "classmap": [
+            ""
+        ],
+        "psr-4": {
+            "": ""
+        }
+    }
 }

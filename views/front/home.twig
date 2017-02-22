@@ -11,7 +11,7 @@
 
 	<div class="row">
 		<div class="col-md-3">
-			<form action="/" method="post">
+			<form action="/generate" method="post">
 				<div class="form-group">
 					<input type="number" name="width" placeholder="Largeur du labyrinthe" class="form-control">
 				</div>
@@ -28,6 +28,16 @@
 					<input type="submit" value="Generation" class="btn btn-success">
 				</div>
 			</form>
+		</div>
+
+		<div class="col-md-9">
+			{% for a in data %}
+				<div>
+					<p>{{a.width}}</p>
+					<p>{{a.height}}</p>
+					<p>{{a.color}}</p>
+				</div>
+			{% endfor %}		
 		</div>
 	</div>
 
