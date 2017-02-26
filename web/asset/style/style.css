@@ -1,3 +1,38 @@
 input{
 	height: 7vh;
 }
+
+svg{
+	width: 100%;
+	height: 100%;
+}
+
+.panel{
+	border-radius: 5px;
+	background-color: #f6f6f6;
+	position: absolute;
+	top: 60vh;
+	left: 8.5vw;
+	z-index: 2;
+}
+
+.panel-heading{
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	background-color: #F2DEDE;
+	color: #a94442;
+	padding: 10px;
+}
+
+.panel-body, .panel-heading{
+	padding: 10px;
+
+}
+
+.hide{
+	display: none;
+}
+
+.show{
+	display: block;
+}

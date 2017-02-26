@@ -12,7 +12,9 @@
             "email": "teboul.clement@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "symfony/validator": "^3.2"
+    },
     "autoload": {
         "classmap": [
             ""

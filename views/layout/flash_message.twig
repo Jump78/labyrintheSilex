@@ -1,0 +1,14 @@
+{% if  app.session.getFlashBag.get('errors') is defined %}
+	<div class="panel">
+		<div class="panel-heading">
+			<h5>Oops, une ou plusieurs erreurs sont surevenus !</h5>
+		</div>
+		<div class="panel-body">
+			{% for errors in app.session.getFlashBag.get('errors') %}
+				{% for error in errors %}
+					<p>{{ error.getMessage() }}</p>
+				{% endfor %}
+			{% endfor %}
+		</div>
+	</div>
+{% endif %}

@@ -3,7 +3,7 @@
 	require_once __DIR__.'/../vendor/autoload.php';
 
 	use Silex\Application;
-
+	
 	const DB_HOST = 'localhost';
 	const DB_DATABASE = 'labyrintheSilex';
 	const USER = 'root';
@@ -13,7 +13,7 @@
 
 	$app->register(new Silex\Provider\ServiceControllerServiceProvider());
 	$app->register(new Silex\Provider\SessionServiceProvider());
-
+	$app->register(new Silex\Provider\ValidatorServiceProvider());
 
 	$app->register(new Silex\Provider\TwigServiceProvider(), array(
 	    'twig.path' => __DIR__.'/../views',
@@ -45,5 +45,6 @@
 
 	$app->post('/generate',"front.controller:create");
 	$app->get('/',"front.controller:index");
+	$app->get('/delete/{id}',"front.controller:delete");
 
 	$app->run();

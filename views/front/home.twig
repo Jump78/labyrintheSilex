@@ -5,7 +5,7 @@
 	<div class="row">
 		<div class="col-md-12 text-center">
 			<h1>Labyrinthe Maker</h1>
-			<p>Créez votre propre aléatoire de façcon aléatoire !</p>
+			<p>Créez votre propre Labyrinthe de façon aléatoire !</p>
 		</div>
 	</div>
 
@@ -31,13 +31,25 @@
 		</div>
 
 		<div class="col-md-9">
-			{% for a in data %}
-				<div>
-					<p>{{a.width}}</p>
-					<p>{{a.height}}</p>
-					<p>{{a.color}}</p>
-				</div>
-			{% endfor %}		
+				{% if map is defined and map is not empty %}
+					<svg width="{{data.width*30+2}}" height="{{data.height*30+2}}">
+	 					{% for hort in map[0] %}
+							{% for wall in hort %}
+							    {% if wall %}
+									<rect x="{{30*(loop.index0)}}" y="{{30*(loop.parent.loop.index0)}}" width="30" height="2" style="fill:{{data.color}};" />
+								{% endif %}
+							{% endfor %}
+						{% endfor %}
+					
+						{% for vert in map[1] %}
+							{% for wall in vert %}
+								{% if wall %}
+									<rect x="{{30*(loop.index0)}}" y="{{30*(loop.parent.loop.index0)}}" width="2" height="30" style="fill:{{data.color}};" />
+								{% endif %}
+							{% endfor %}
+						{% endfor %}
+					</svg>									
+				{% endif %}
 		</div>
 	</div>
 
